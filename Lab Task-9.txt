@@ -31,7 +31,7 @@
 5.  Create a view called SALARY_VU based on the employee name, department name, salary, and salary grade for all employees. Label the columns Employee, Department, Salary, and Grade, respectively.
 
         
-    CREATE OR REPLACE VIEW SALARY_VU AS
+        CREATE OR REPLACE VIEW SALARY_VU AS
 	SELECT E.ENAME "EMPLOYEE", D.DNAME "DEPARTMENT", E.SAL "SALARY", S.GRADE "GRADE"
 	FROM EMP E, DEPT D, SALGRADE S
 	WHERE E.DEPTNO = D.DEPTNO AND E.SAL BETWEEN S.LOSAL AND S.HISAL;
