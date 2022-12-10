@@ -1,0 +1,46 @@
+1. Create a view called EMPLOYEES_VU based on the employee numbers, employee names, and
+   department numbers from the EMPLOYEES table. Change the heading for the employee name to
+   EMPLOYEE.
+
+    CREATE OR REPLACE VIEW EMP_VU AS
+    SELECT EMPNO, ENAME "EMPLOYEE",DEPTNO
+    FROM EMP;
+
+
+2. Display the contents of the EMP_VU view
+
+    SELECT *
+    FROM EMP_VU ;
+
+
+3. Using your view EMP_VU, enter a query to display all employee names and department numbers.
+
+      SELECT EMPLOYEE, DEPTNO
+      FROM EMP_VU;
+
+
+4. Create a view named DEPT20 that contains the employee number, employee name, and department number for all employees in department 20. Label the view column EMPLOYEE_ID, EMPLOYEE, and DEPARTMENT_ID. Do not allow an employee to be reassigned to another department through the view.
+
+    CREATE OR REPLACE VIEW DEPT20 AS
+	SELECT EMPNO "EMPLOYEE_ID", ENAME "EMPLOYEE",DEPTNO "DEPARTMENT_ID"
+	FROM EMP
+	WHERE DEPTNO = 20
+	WITH CHECK OPTION CONSTRAINT DEPT20;
+
+
+5.  Create a view called SALARY_VU based on the employee name, department name, salary, and salary grade for all employees. Label the columns Employee, Department, Salary, and Grade, respectively.
+
+        
+    CREATE OR REPLACE VIEW SALARY_VU AS
+	SELECT E.ENAME "EMPLOYEE", D.DNAME "DEPARTMENT", E.SAL "SALARY", S.GRADE "GRADE"
+	FROM EMP E, DEPT D, SALGRADE S
+	WHERE E.DEPTNO = D.DEPTNO AND E.SAL BETWEEN S.LOSAL AND S.HISAL;
+
+
+
+
+
+
+
+
+
