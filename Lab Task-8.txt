@@ -21,14 +21,14 @@ WHERE E2.DEPTNO = D.DEPTNO AND E1.EMPNO = E2.MGR AND E1.ENAME = 'CLARK'
 
 4. Select all the departmental information for all the managers
 
-SELECT*
+SELECT D.*
 FROM EMP E, DEPT D
-WHERE E.DEPTNO = D.DEPTNO AND E.MGR IS NOT NULL
+WHERE E.DEPTNO = D.DEPTNO AND E.JOB = 'MANAGER'
 
 
 5. Select all the employees who work in DALLAS.
 
-SELECT*
+SELECT *
 FROM EMP E, DEPT D
 WHERE E.DEPTNO = D.DEPTNO AND D.LOC = 'DALLAS'
 
